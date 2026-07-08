@@ -1,8 +1,11 @@
 {
   "name": "qonto-matchmaker",
-  "version": "2026.7.7",
+  "version": "2026.7.8",
   "interface": {
-    "displayName": "Qonto Matchmaker"
+    "displayName": "Qonto Matchmaker",
+    "brandColor": "#8B3DE8",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
   },
   "author": {
     "name": "Fizard",

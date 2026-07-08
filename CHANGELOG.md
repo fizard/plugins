@@ -4,6 +4,11 @@ Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
 Code and Cowork update per commit — their installed "version" is the git
 commit SHA.
 
+## 2026.7.8 — July 2026
+
+- Fizard logo added (Codex: `interface.logo`/`composerIcon` + brand color;
+  the Claude plugin format has no icon field yet).
+
 ## 2026.7.7 — July 2026
 
 - Faster runs: PDF downloads from the inbox and receipt uploads to Qonto now
