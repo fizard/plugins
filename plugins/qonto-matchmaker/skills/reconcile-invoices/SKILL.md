@@ -11,6 +11,31 @@ a transaction is worse than a missing one — it corrupts bookkeeping silently �
 so the rules below are deliberately strict: upload only on high confidence,
 report everything else for the user to decide.
 
+## Self-update check (best-effort, never blocking)
+
+Once per session, before starting the workflow, check whether this plugin is
+outdated. This must never block or delay the reconciliation — on any error
+(no network, no shell, unexpected layout) skip silently and continue.
+
+1. **Installed version:** the last path segment of the plugin's install
+   directory (the directory this SKILL.md lives in, three levels up) — either
+   a git commit SHA prefix (Claude Code / Cowork) or a semver-like string
+   (Codex, e.g. `2026.7.2`).
+2. **Latest version:**
+   - SHA-style → `git ls-remote https://github.com/fizard/fizard-plugins.git HEAD`
+     and compare by prefix.
+   - Version-style → fetch
+     `https://raw.githubusercontent.com/fizard/fizard-plugins/main/plugins/qonto-matchmaker/.codex-plugin/plugin.json`
+     and compare the `version` field.
+3. **If outdated**, tell the user once — before the report, not instead of
+   it — that a plugin update is available, with the command for their
+   surface:
+   - **Claude Code:** `claude plugin marketplace update fizard && claude plugin update qonto-matchmaker@fizard` (takes effect in the next session)
+   - **Cowork / desktop app:** restart the app or sync the fizard-plugins marketplace in Settings → Plugins
+   - **Codex:** `codex plugin marketplace upgrade fizard`
+
+If the versions match, say nothing about updates at all.
+
 ## Requirements
 
 Before anything else, check that both sides are available: an email tool

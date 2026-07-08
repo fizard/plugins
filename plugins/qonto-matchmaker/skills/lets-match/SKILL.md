@@ -13,6 +13,11 @@ skip a verification step.
 Run the two checks in order. Don't fail silently on a missing piece — walk
 the user through connecting it, one step at a time, then re-check.
 
+Before Step 1, run the **self-update check** described in the sibling
+`reconcile-invoices` skill (best-effort, never blocking): if the installed
+plugin version is behind the repo, mention it with the matching update
+command before continuing the setup.
+
 ## Step 1: Email connector
 
 Enumerate the currently available tools that can **search mail and download
