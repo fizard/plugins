@@ -1,5 +1,6 @@
 {
   "name": "qonto-matchmaker",
+  "displayName": "Qonto Matchmaker",
   "description": "Fizard Qonto Matchmaker — finds Qonto transactions with missing receipts, matches invoice PDFs from your email inbox, and attaches them via the bundled Qonto MCP",
   "author": {
     "name": "Fizard",

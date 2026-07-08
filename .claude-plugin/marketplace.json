@@ -8,6 +8,7 @@
   "plugins": [
     {
       "name": "qonto-matchmaker",
+      "displayName": "Qonto Matchmaker",
       "source": "./plugins/qonto-matchmaker",
       "description": "The matchmaker between your inbox and your bank account — finds Qonto transactions with missing receipts, matches invoice PDFs from your email, and attaches them via the bundled Qonto MCP"
     }
