@@ -9,7 +9,7 @@ then get every update automatically (or with one command).
 ### Claude Code
 
 ```
-/plugin marketplace add fizard/plugins
+/plugin marketplace add fizard/fizard-plugins
 /plugin install qonto-matchmaker@fizard
 ```
 
@@ -22,14 +22,14 @@ same thing once in any terminal instead — the plugin is then available
 everywhere, including the desktop app (new sessions):
 
 ```bash
-claude plugin marketplace add fizard/plugins
+claude plugin marketplace add fizard/fizard-plugins
 claude plugin install qonto-matchmaker@fizard
 ```
 
 ### Codex
 
 ```
-codex plugin marketplace add fizard/plugins
+codex plugin marketplace add fizard/fizard-plugins
 ```
 
 Then open `/plugins` in Codex, find **Fizard**, and install `qonto-matchmaker`.
@@ -37,7 +37,7 @@ Then open `/plugins` in Codex, find **Fizard**, and install `qonto-matchmaker`.
 ### Cursor and other agents (skill only)
 
 ```
-npx skills add fizard/plugins
+npx skills add fizard/fizard-plugins
 ```
 
 The [skills CLI](https://github.com/vercel-labs/skills) detects your
