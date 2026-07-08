@@ -1,0 +1,20 @@
+{
+  "name": "fizard",
+  "interface": {
+    "displayName": "Fizard"
+  },
+  "plugins": [
+    {
+      "name": "qonto-matchmaker",
+      "source": {
+        "source": "local",
+        "path": "./plugins/qonto-matchmaker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
