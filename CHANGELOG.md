@@ -4,6 +4,18 @@ Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
 Code and Cowork update per commit — their installed "version" is the git
 commit SHA.
 
+## 2026.7.17 — July 2026
+
+- **Visible guidance:** every substantive message during a run now opens
+  with its station — step number plus a few words ("Step 4/9 — hunting
+  your inbox") — so the user always knows where on the map they are.
+- **Only four pause points:** the run waits for input exactly at the
+  month/name question, the validation confirmation, the browser setup
+  with portal logins, and removal approvals. Everywhere else Merlin
+  keeps driving — a run never ends while receipts are still open unless
+  the portal route was tried or explicitly declined; the finish line is
+  the report and offboarding.
+
 ## 2026.7.16 — July 2026
 
 - **Merlin now opens as Merlin:** every run starts with a short
