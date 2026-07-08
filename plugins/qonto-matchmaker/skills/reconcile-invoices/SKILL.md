@@ -27,12 +27,23 @@ outdated. This must never block or delay the reconciliation — on any error
    - Version-style → fetch
      `https://raw.githubusercontent.com/fizard/fizard-plugins/main/plugins/qonto-matchmaker/.codex-plugin/plugin.json`
      and compare the `version` field.
-3. **If outdated**, tell the user once — before the report, not instead of
-   it — that a plugin update is available, with the command for their
-   surface:
-   - **Claude Code:** `claude plugin marketplace update fizard && claude plugin update qonto-matchmaker@fizard` (takes effect in the next session)
-   - **Cowork / desktop app:** restart the app or sync the fizard-plugins marketplace in Settings → Plugins
-   - **Codex:** `codex plugin marketplace upgrade fizard`
+3. **If outdated**, first determine which surface you are running on, then
+   act with exactly the one matching command — never list the commands for
+   other surfaces. Detect the surface from your own identity and the
+   plugin's install path:
+
+   | Surface | How to recognize it | What to do |
+   |---|---|---|
+   | **Claude Code** (terminal/IDE) | You are Claude with a shell tool; install path under `~/.claude/plugins/` | Offer to run `claude plugin marketplace update fizard && claude plugin update qonto-matchmaker@fizard` yourself, right now. Tell the user it takes effect in the next session. |
+   | **Cowork / Claude desktop app** | You are Claude; install path contains `cowork_plugins` or `local-agent-mode-sessions` | No CLI for this — tell the user to sync the fizard-plugins marketplace in Settings → Plugins, or restart the app. |
+   | **claude.ai (web)** | You are Claude with no local plugin path | Plugin updates are managed in the plugin/connector settings — point the user there. |
+   | **Codex** | You are Codex; plugin loaded from `.codex-plugin`, cache under `~/.codex/` | Offer to run `codex plugin marketplace upgrade fizard` yourself. |
+   | **Any other agent** | Skill installed standalone (e.g. via the skills CLI), no plugin manager | Suggest `npx skills update`. |
+
+   Where a shell tool is available, prefer running the update for the user
+   (after a short confirmation) over just printing the command. If you
+   cannot determine the surface, say an update is available and name the
+   repo (`fizard/fizard-plugins`) instead of guessing a command.
 
 If the versions match, say nothing about updates at all.
 
