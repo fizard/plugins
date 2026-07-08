@@ -4,7 +4,7 @@ Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
 Code and Cowork update per commit — their installed "version" is the git
 commit SHA.
 
-## 2026.7.6 — July 2026
+## 2026.7.7 — July 2026
 
 - Faster runs: PDF downloads from the inbox and receipt uploads to Qonto now
   run in parallel (concurrent batches of ~5) instead of one-by-one. Failures
