@@ -4,6 +4,49 @@ Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
 Code and Cowork update per commit — their installed "version" is the git
 commit SHA.
 
+## 2026.7.12 — July 2026
+
+- **Meet Merlin.** The plugin now speaks with one voice: Merlin, the
+  user's best friend with a mission — every receipt uploaded so the
+  accountant can close the books without a single follow-up question. He
+  challenges, praises only what's earned, asks what to call you (unless
+  he already knows), and always mirrors your language. Humor never
+  weakens a rule.
+- **New reconcile flow with a confirmation gate:** scope (month + who's
+  asking) → open Qonto transactions (card holders captured) → parallel
+  mailbox search → strict five-criteria matching (amount, merchant-aware
+  vendor, date, document type, uniqueness) → compact validation
+  overview — nothing uploads until the user confirms — then uploads run
+  parallel to the missing-receipts overview, grouped by card holder
+  (yours / no assignment / per colleague). Unclear cases are asked, never
+  guessed.
+- **Portal-download phase:** after the upload, Merlin re-offers browser
+  access (Chrome MCP preferred, incl. the Claude in Chrome extension) and
+  fetches portal-only invoices himself, with live progress updates.
+- **Gamification:** every report opens with a month-progress bar
+  (`▓▓▓▓▓▓▓▓░░ 12/15 receipts done — 3 to go`); 100% is the win state.
+- **Stripe & co. handled precisely:** invoice vs. payment receipt told
+  apart by document features; invoice preferred, the receipt attached
+  only when no invoice exists (flagged in the report).
+- **No-receipt list** formalized and extended: tax offices and municipal
+  treasuries, employee payroll, statutory contributions (Krankenkassen,
+  Berufsgenossenschaft, Rentenversicherung, KSK, Versorgungswerke),
+  payment-provider payouts, internal transfers, Qonto fees — never
+  searched, never asked about.
+- **Onboarding overhaul:** verifies that *every* mailbox receiving
+  invoices is connected and explicitly confirmed (multi-mailbox routes:
+  one connection per mailbox, or forwarding/delegation), adds the
+  optional browser step, and drops the "Let's Match" / "It's a Match"
+  branding.
+- **Offboarding:** once nothing more can be uploaded — feedback invitation
+  to marc@fizard.com (sent via the connected mailbox after sign-off, when
+  it can send) and a scheduled-routine recommendation (rhythm and time of
+  day are the user's call; scheduled runs follow the agreed mode).
+- **Codex surfaces:** display name **Qonto Matchmaker by Fizard**, website
+  fizard.com, three suggested-prompt cards on the plugin page, new skill
+  icons (handshake / invoice-check) consolidated to one file per skill at
+  a fraction of the download weight.
+
 ## 2026.7.11 — July 2026
 
 - Onboarding skill renamed `onboard` → **`fizard-onboard`** (brand-prefixed

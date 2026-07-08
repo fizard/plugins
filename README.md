@@ -46,12 +46,20 @@ with `npx skills update`.
 
 ## Plugins
 
-### Fizard Qonto Matchmaker (`qonto-matchmaker`)
+### Qonto Matchmaker by Fizard (`qonto-matchmaker`)
 
 The matchmaker between your inbox and your bank account: finds Qonto
 transactions with missing receipts, matches invoice PDFs from your email
-inbox against them (exact amount, vendor, date), and — on your say-so —
-attaches them to the transactions via the Qonto MCP.
+inbox against them (exact amount, vendor, date — and only when the match
+is unambiguous), attaches confident matches automatically via the Qonto
+MCP, and ends every run with a progress report: what's done, what's
+missing, where to find the rest.
+
+Fair warning: it has a personality, and his name is **Merlin**. Think
+best friend with a mission — he makes receipt-chasing fun, doesn't mince
+words when receipts sit open for months, and celebrates you when the
+month is clean. All in service of one goal: books your accountant can
+close without a single follow-up question.
 
 **Qonto connection is bundled:** the plugin ships the Qonto MCP server
 config (`https://mcp.qonto.com/mcp`); on first use you just log in to Qonto
@@ -68,11 +76,25 @@ existing connection, which keeps working as-is.
   [ms-365-mcp-server](https://github.com/softeria/ms-365-mcp-server)
   (`claude mcp add ms365 -- npx -y @softeria/ms-365-mcp-server`).
 
-**Getting started:** say **"Let's Match"** — the setup flow verifies your
-email connector (naming an existing one for you to confirm) and the Qonto
-connection. From then on: `/reconcile-invoices <Monat>` (e.g.
-`/reconcile-invoices Juni` — the month is always read in the current year),
-or just ask *"Wo fehlen Belege?"*.
+**Optional, recommended: browser access.** Some receipts never arrive as
+email attachments (Stripe receipt links, portal downloads from Google,
+Apple, …). With the [Claude in Chrome](https://claude.ai/chrome) extension
+connected (Codex users: a Chrome DevTools MCP), the matchmaker offers to
+download those straight from the vendor portal — you handle the login, it
+handles the rest. Without it they stay a manual download.
+
+**Getting started:** run `/reconcile-invoices <Monat>` (e.g.
+`/reconcile-invoices Juni` — the month is always read in the current year)
+or just ask *"Wo fehlen Belege?"*. On first use (or whenever a connection
+is missing) Merlin runs the onboarding first: email connector, Qonto
+connection, optional browser setup.
+
+## Feedback
+
+Ideas and improvement suggestions are always welcome — send them to
+[marc@fizard.com](mailto:marc@fizard.com). Or just tell Merlin: if your
+connected mailbox can send mail, he'll compose the message for you and
+send it once you've approved the text.
 
 ## Release workflow (Fizard-internal)
 
@@ -97,7 +119,7 @@ plugins/qonto-matchmaker/
 ├── .codex-plugin/plugin.json            Codex manifest + version
 ├── .mcp.json                            bundled Qonto MCP server config
 └── skills/
-    ├── fizard-onboard/SKILL.md          onboarding flow ("Let's Match")
+    ├── fizard-onboard/SKILL.md          onboarding flow
     └── reconcile-invoices/SKILL.md      the monthly reconciliation
 CHANGELOG.md                             what changed per release
 ```

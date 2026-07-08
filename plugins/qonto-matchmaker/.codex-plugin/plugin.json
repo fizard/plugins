@@ -1,17 +1,25 @@
 {
   "name": "qonto-matchmaker",
-  "version": "2026.7.11",
+  "version": "2026.7.12",
+  "homepage": "https://fizard.com",
   "interface": {
-    "displayName": "Qonto Matchmaker",
+    "displayName": "Qonto Matchmaker by Fizard",
     "brandColor": "#8B3DE8",
     "composerIcon": "./assets/icon.png",
-    "logo": "./assets/logo.png"
+    "logo": "./assets/logo.png",
+    "websiteURL": "https://fizard.com",
+    "defaultPrompt": [
+      "Reconcile my Qonto invoices for this month",
+      "Where are receipts missing?",
+      "Set me up"
+    ]
   },
   "author": {
     "name": "Fizard",
-    "email": "marc@fizard.com"
+    "email": "marc@fizard.com",
+    "url": "https://fizard.com"
   },
-  "description": "Fizard Qonto Matchmaker — finds Qonto transactions with missing receipts, matches invoice PDFs from your email inbox, and attaches them via the bundled Qonto MCP",
+  "description": "Qonto Matchmaker by Fizard — finds Qonto transactions with missing receipts, matches invoice PDFs from your email inbox, and attaches them via the bundled Qonto MCP",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json"
 }
