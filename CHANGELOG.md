@@ -4,6 +4,16 @@ Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
 Code and Cowork update per commit — their installed "version" is the git
 commit SHA.
 
+## 2026.7.18 — July 2026
+
+- **The user picks the language:** on first contact Merlin's opener
+  includes a quick choice — German, English, or any other language.
+  Once chosen (or already established), he never asks again and stays
+  consistent, humor included; he only switches when the user asks or
+  clearly switches themselves. The opener bundles all quick questions —
+  intro, plan teaser, month, name, language — into one friendly
+  message, not an interrogation.
+
 ## 2026.7.17 — July 2026
 
 - **Visible guidance:** every substantive message during a run now opens
