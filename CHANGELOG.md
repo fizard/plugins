@@ -4,6 +4,24 @@ Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
 Code and Cowork update per commit — their installed "version" is the git
 commit SHA.
 
+## 2026.7.19 — July 2026
+
+- **The run is four user-facing steps now** — the user's work arrives in
+  bulk at defined moments, never dribbled through the run: ① audit
+  what's already attached, ② hunt the missing invoices, ③ one upload
+  table — confirm once, upload, get the done-count — ④ one final
+  two-section table: "Missing receipts" grouped by card holder and
+  "Please review" with a plain-language reason per row, shrunk first by
+  Merlin's own portal assist.
+- **Receipts can be handed over right in the chat:** drop the files and
+  Merlin validates each against the matching rules and uploads what
+  passes — or upload in Qonto yourself. Whatever remains is the only
+  backlog, with named owners.
+- **Onboarding reordered:** Qonto first, then email — which now starts
+  by showing which mailboxes Merlin can already reach and collects two
+  confirmations (right mailbox, complete list) — then the optional
+  browser step.
+
 ## 2026.7.18 — July 2026
 
 - **The user picks the language:** on first contact Merlin's opener

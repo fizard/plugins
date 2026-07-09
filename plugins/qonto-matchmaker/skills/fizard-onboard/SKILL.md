@@ -1,6 +1,6 @@
 ---
 name: fizard-onboard
-description: Onboarding flow for the Qonto Matchmaker. Trigger on "onboard", "setup", "set me up", "get started", on the first use of the plugin, and whenever reconcile-invoices finds a missing or unauthenticated connection. Verifies that every mailbox receiving invoices is connected and confirmed by the user, checks the Qonto connection, then offers optional browser access (Claude in Chrome extension / Chrome DevTools MCP) for downloading portal-only invoices.
+description: Onboarding flow for the Qonto Matchmaker. Trigger on "onboard", "setup", "set me up", "get started", on the first use of the plugin, and whenever reconcile-invoices finds a missing or unauthenticated connection. Checks the Qonto connection first, then verifies that every mailbox receiving invoices is connected and confirmed by the user, then offers optional browser access (Claude in Chrome extension / Chrome DevTools MCP) for downloading portal-only invoices.
 ---
 
 # Onboarding
@@ -67,18 +67,34 @@ Before Step 1, run the **self-update check** described in the sibling
 plugin version is behind the repo, mention it with the matching update
 command before continuing the setup.
 
-## Step 1: Email — all of it
+## Step 1: Qonto connection
 
-Invoices rarely arrive in just one place. Start by asking the user where
-invoices and receipts actually land: which mailboxes and addresses
-(shared inboxes like billing@ or info@, the personal account that holds
-old subscriptions, …)? Collect the full list — a mailbox that isn't
-connected is a receipt Merlin will never find.
+Check that the bundled Qonto MCP tools are available **and authenticated** —
+verify with a cheap probe call (e.g. `get_organization`), not just by tool
+presence. If unavailable or unauthenticated, give the instruction matching
+the user's surface:
 
-Then enumerate the currently available tools that can **search mail and
-download PDF attachments** (e.g. the Gmail connector, an Outlook/MS-365
-MCP server, or any other mail-capable MCP) and map them against that
-list:
+- **Claude Code (terminal):** the plugin already bundles the server config —
+  run `/mcp`, pick `qonto`, authenticate in the browser.
+- **Claude desktop app / claude.ai:** Settings → Connectors
+  (claude.ai/settings/connectors) → Browse connectors → search **Qonto** →
+  Connect → log in and pick the organization.
+- **Codex:** the plugin bundles the server config — run
+  `codex mcp login qonto`.
+
+Re-check after the user reports success.
+
+## Step 2: Email — all of it
+
+Start by showing what's already there: enumerate the connected tools
+that can **search mail and download PDF attachments** (the Gmail
+connector, an Outlook/MS-365 MCP server, any other mail-capable MCP)
+and name the mailbox(es) Merlin can reach. Then get two confirmations
+from the user: that this is the mail to work with, and that it is
+complete — where do invoices and receipts actually land (shared inboxes
+like billing@ or info@, the personal account with old subscriptions,
+…)? A mailbox that isn't connected is a receipt Merlin will never find.
+Map the answers against what's connected:
 
 - **One relevant mailbox:** the built-in Claude or Codex connectors and
   plugins are all it takes. Name the matching tool ("your Gmail
@@ -109,23 +125,6 @@ may require restarting the session — say so if the tools still don't
 appear. Close the step only when the user has **explicitly confirmed that
 every address where invoices arrive is covered** — repeat the final
 mailbox list back to them for that confirmation.
-
-## Step 2: Qonto connection
-
-Check that the bundled Qonto MCP tools are available **and authenticated** —
-verify with a cheap probe call (e.g. `get_organization`), not just by tool
-presence. If unavailable or unauthenticated, give the instruction matching
-the user's surface:
-
-- **Claude Code (terminal):** the plugin already bundles the server config —
-  run `/mcp`, pick `qonto`, authenticate in the browser.
-- **Claude desktop app / claude.ai:** Settings → Connectors
-  (claude.ai/settings/connectors) → Browse connectors → search **Qonto** →
-  Connect → log in and pick the organization.
-- **Codex:** the plugin bundles the server config — run
-  `codex mcp login qonto`.
-
-Re-check after the user reports success.
 
 ## Step 3: Browser access (optional, recommended)
 
@@ -174,7 +173,7 @@ remain a manual download.
 ## Step 4: Wrap-up
 
 When both required sides verify, close with a short confirmation naming
-what is now connected (every mailbox from Step 1 ↔ Qonto organization,
+what is now connected (Qonto organization ↔ every mailbox from Step 2,
 plus the browser if Step 3 was set up), and tell the user how to run the
 reconciliation from now on:
 
@@ -183,7 +182,7 @@ reconciliation from now on:
 
 End with one short line inviting the user to send improvement suggestions
 and ideas to **marc@fizard.com** — they land directly with the maker. If
-the email connector verified in Step 1 can send or draft mail, offer to
+the email connector verified in Step 2 can send or draft mail, offer to
 handle that on the spot: take the user's text, compose the mail, show it,
 and send only after they confirm (draft-only tooling: prepare the draft
 for them to fire off). Never send without sign-off.
