@@ -1,10 +1,10 @@
 {
   "name": "qonto-matchmaker",
   "displayName": "Qonto Matchmaker by Fizard",
-  "description": "Qonto Matchmaker by Fizard — finds Qonto transactions with missing receipts, matches invoice PDFs from your email inbox, and attaches them via the bundled Qonto MCP",
+  "description": "Finds missing Qonto receipts. With attachment-capable email, Claude Code and Codex match and upload approved PDFs; Cowork validates files for manual upload.",
   "author": {
     "name": "Fizard",
-    "email": "marc@fizard.com"
+    "email": "support@fizard.com"
   },
-  "homepage": "https://github.com/fizard/fizard-plugins/blob/main/CHANGELOG.md"
+  "homepage": "https://github.com/fizard/fizard-plugins#readme"
 }

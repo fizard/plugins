@@ -4,4 +4,4 @@ interface:
   icon_small: "./assets/onboard.png"
   icon_large: "./assets/onboard.png"
   brand_color: "#8B3DE8"
-  default_prompt: "Set me up"
+  default_prompt: "Use $fizard-onboard to set up Qonto Matchmaker."

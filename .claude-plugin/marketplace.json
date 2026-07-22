@@ -2,7 +2,7 @@
   "name": "fizard",
   "owner": {
     "name": "Fizard",
-    "email": "marc@fizard.com"
+    "email": "support@fizard.com"
   },
   "description": "Fizard skills for your bookkeeping — updated regularly",
   "plugins": [
@@ -10,7 +10,7 @@
       "name": "qonto-matchmaker",
       "displayName": "Qonto Matchmaker by Fizard",
       "source": "./plugins/qonto-matchmaker",
-      "description": "The matchmaker between your inbox and your bank account — finds Qonto transactions with missing receipts, matches invoice PDFs from your email, and attaches them via the bundled Qonto MCP"
+      "description": "Finds missing Qonto receipts. With attachment-capable email, Claude Code and Codex match and upload approved PDFs; Cowork validates files for manual upload."
     }
   ]
 }

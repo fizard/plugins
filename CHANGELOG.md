@@ -1,8 +1,64 @@
 # Changelog
 
-Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude
-Code and Cowork update per commit — their installed "version" is the git
-commit SHA.
+Versions follow the Codex manifest (`.codex-plugin/plugin.json`). Claude Code
+and Cowork update per commit — their installed "version" is the git commit SHA.
+
+## 2026.7.22 — July 2026
+
+- **Leaner run — audit paused:** the audit of pre-existing receipts is
+  removed for now (it may return later). A run is: find, confirm,
+  upload, wrap up. "Please review" keeps this run's own unclear
+  matches.
+- **Leaner onboarding — browser step paused:** onboarding is Qonto and
+  mail; the Chrome setup may return together with the portal-download
+  skill.
+- **The user gives the go:** both skills open by naming the steps ahead
+  and start only after the okay. Mid-run detours return to the named
+  next step — every substantive message closes with what comes next.
+- **Feedback goes to support@fizard.com:** the wrap-up invitation, the
+  onboarding close, the README, and the manifests now name the support
+  address instead of the personal one.
+- **Capability-tested setup:** onboarding proves PDF bytes for every distinct
+  mailbox permission scope, Qonto authentication/role, and upload
+  prerequisites. It does not call a route live-tested until its first approved
+  upload. Metadata-only Gmail routes fall back to a concrete report/manual
+  path.
+- **Honest store and privacy boundaries:** marketplace copy now advertises
+  attachment-dependent automation plus limited mode, unaudited community
+  mail-server installation is no longer guided, and `PRIVACY.md` documents
+  provider processing, best-effort temp cleanup, and crash/retention limits.
+- **Safer matching and uploads:** a legal-recipient gate joins final-total,
+  vendor, date, document-type, and uniqueness checks. Dedupe is scoped by
+  issuer/recipient; a narrow competing-transaction ledger blocks reuse of an
+  existing attachment. Approval binds the fresh transaction fields and file
+  hash. Uploads use idempotency keys where supported, pin validated public DNS,
+  fail closed on uncertain retry, verify the final attachment, and clean up
+  temporary PDFs on a best-effort basis.
+- **Complete means complete:** Qonto, card, and mailbox pagination is
+  mandatory. Partial API, download, or parser failures produce a prominent
+  “Search incomplete” result and block every mail-derived automatic upload.
+- **Calendar and automation fixed:** runs accept an optional year, January
+  routines resolve December of the previous year correctly, and scheduled
+  runs are report-only in this release.
+- **Accounting-safe classification:** tax, payroll, contribution, payout,
+  transfer, and Qonto-fee rows remain visible as “Other evidence / manual
+  decision” instead of being counted as skipped or complete.
+- **Focused launch scope:** the supported paths are local Claude Code sessions
+  in the desktop Code tab and CLI, Claude Cowork, and the Codex app and CLI.
+  Claude Chat, Claude Code remote sessions, Cursor, and other agents remain
+  unsupported. All three paths install without a repository checkout. Cowork
+  adds the public GitHub marketplace in its UI; Codex still needs the CLI once.
+  Update guidance is surface-specific. User-facing Codex skill examples use
+  the canonical `$qonto-matchmaker:<skill>` namespace.
+- **Cowork starts safely and stays limited:** Qonto work requires a directly
+  started **Manually approve** task. Auto, Skip, Dispatch, scheduled tasks,
+  Computer Use, browser control, automatic Qonto upload, and feedback mail are
+  blocked. Cowork can read Qonto, report missing receipts, and validate files
+  the user attaches. Built-in Gmail remains metadata-only and leads to a
+  concrete manual hand-off with its own pending status.
+- **Release gates expanded:** the Codex manifest now includes required store
+  metadata, cross-platform skill metadata validates cleanly, and CI checks
+  both catalogs, paths, assets, MCP config, and changelog/version alignment.
 
 ## 2026.7.21 — July 2026
 
